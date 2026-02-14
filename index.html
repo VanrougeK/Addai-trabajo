@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz San Valentín 💝 Danna</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --color-dark: #0a0a0a;
+            --color-red-dark: #8E1616;
+            --color-red-medium: #D84040;
+            --color-light: #1a1a1a;
+            --color-accent: #ff4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+            font-family: 'Poppins', sans-serif;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navbar */
+        .top-navbar {
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            box-shadow: 0 4px 20px rgba(216, 64, 64, 0.5);
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 4px solid var(--color-red-medium);
+        }
+
+        .navbar-brand-custom {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--color-red-medium) !important;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: 'Playfair Display', serif;
+            text-decoration: none;
+        }
+
+        .nav-link-custom {
+            color: #ffffff !important;
+            font-weight: 600;
+            margin: 0 15px;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+            text-decoration: none;
+        }
+
+        .nav-link-custom:hover {
+            color: var(--color-red-medium) !important;
+            border-bottom: 3px solid var(--color-red-medium);
+        }
+
+        /* Hero */
+        .hero-banner {
+            background: linear-gradient(45deg, #000000 0%, #1a1a1a 30%, #8E1616 70%, #D84040 100%);
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-banner::before {
+            content: "❤";
+            position: absolute;
+            font-size: 25rem;
+            opacity: 0.08;
+            top: -100px;
+            left: -100px;
+            color: #D84040;
+            transform: rotate(-15deg);
+            animation: spin-slow 30s linear infinite;
+        }
+
+        .hero-banner::after {
+            content: "❤";
+            position: absolute;
+            font-size: 20rem;
+            opacity: 0.08;
+            bottom: -80px;
+            right: -80px;
+            color: #D84040;
+            transform: rotate(15deg);
+            animation: spin-slow 25s linear infinite reverse;
+        }
+
+        @keyframes spin-slow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-text {
+            text-align: center;
+            color: white;
+            z-index: 10;
+            position: relative;
+        }
+
+        .main-heart {
+            font-size: 7rem;
+            animation: super-pulse 2s infinite ease-in-out;
+            display: inline-block;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.6));
+        }
+
+        @keyframes super-pulse {
+            0%, 100% { transform: scale(1); }
+            10% { transform: scale(1.2); }
+            20% { transform: scale(1); }
+            30% { transform: scale(1.15); }
+            40% { transform: scale(1); }
+        }
+
+        /* Sección de carta */
+        .letter-section {
+            padding: 100px 0;
+            background: #0a0a0a;
+            position: relative;
+        }
+
+        .letter-container {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+            border: 5px solid var(--color-red-medium);
+            border-radius: 40px;
+            padding: 60px;
+            box-shadow: 0 25px 70px rgba(216, 64, 64, 0.3);
+            position: relative;
+        }
+
+        /* Stciker */
+        .chibi-sticker-container {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            margin: 30px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: float-sticker 4s ease-in-out infinite;
+            filter: drop-shadow(0 20px 40px rgba(216, 64, 64, 0.4));
+        }
+
+        @keyframes float-sticker {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .chibi-sticker-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .chibi-placeholder {
+            font-size: 8rem;
+            opacity: 0.3;
+        }
+
+        /* Cards */
+        .feature-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+            border-radius: 35px;
+            padding: 40px;
+            box-shadow: 0 15px 45px rgba(216, 64, 64, 0.2);
+            border: 3px solid transparent;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(
+                from 0deg,
+                transparent,
+                rgba(216, 64, 64, 0.2),
+                transparent 30%
+            );
+            animation: card-rotate 4s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .feature-card:hover::after {
+            opacity: 1;
+        }
+
+        @keyframes card-rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .feature-card:hover {
+            transform: translateY(-25px) scale(1.08);
+            border-color: var(--color-red-medium);
+            box-shadow: 0 25px 60px rgba(216, 64, 64, 0.4);
+        }
+
+        .card-icon {
+            font-size: 5rem;
+            display: inline-block;
+            margin-bottom: 25px;
+            animation: wiggle 3s ease-in-out infinite;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+        }
+
+        /* Títulos */
+        .custom-heading {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--color-red-medium);
+            margin-bottom: 70px;
+            text-align: center;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .custom-heading::before,
+        .custom-heading::after {
+            content: "━━━";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-red-dark);
+            font-size: 2rem;
+        }
+
+        .custom-heading::before {
+            left: 0;
+        }
+
+        .custom-heading::after {
+            right: 0;
+        }
+
+        .line-accent {
+            width: 150px;
+            height: 6px;
+            background: linear-gradient(90deg, transparent, var(--color-red-medium), transparent);
+            margin: 30px auto;
+        }
+
+        /* Galería carousel diferente */
+        .photo-gallery {
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(29, 22, 22, 0.25);
+            border: 8px solid var(--color-red-dark);
+        }
+
+        .carousel-caption-new {
+            background: linear-gradient(to top, rgba(29, 22, 22, 0.9), rgba(142, 22, 22, 0.7));
+            padding: 35px;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border-radius: 0;
+        }
+
+        /* Tabla */
+        .memory-table-wrapper {
+            background: #1a1a1a;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(216, 64, 64, 0.3);
+            border: 4px solid var(--color-red-medium);
+        }
+
+        .table-head-new {
+            background: linear-gradient(90deg, var(--color-red-dark), var(--color-red-medium));
+            color: white;
+        }
+
+        .memory-row {
+            border-left: 6px solid var(--color-red-medium);
+            transition: all 0.4s;
+            background: #0f0f0f;
+            color: #ffffff;
+        }
+
+        .memory-row:hover {
+            background: rgba(216, 64, 64, 0.15);
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(216, 64, 64, 0.3);
+        }
+
+        /* Botones */
+        .action-button {
+            background: linear-gradient(45deg, var(--color-red-medium), var(--color-red-dark));
+            border: none;
+            color: white;
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.5s;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .action-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: left 0.5s;
+        }
+
+        .action-button:hover::before {
+            left: 100%;
+        }
+
+        .action-button:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 20px 40px rgba(142, 22, 22, 0.5);
+            color: white;
+        }
+
+        /* Footer */
+        .bottom-footer {
+            background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-red-dark) 100%);
+            color: var(--color-light);
+            padding: 70px 0 40px;
+            margin-top: 120px;
+            position: relative;
+        }
+
+        .bottom-footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--color-red-medium) 0px,
+                var(--color-red-medium) 20px,
+                var(--color-red-dark) 20px,
+                var(--color-red-dark) 40px
+            );
+            animation: move-stripes 2s linear infinite;
+        }
+
+        @keyframes move-stripes {
+            0% { background-position: 0 0; }
+            100% { background-position: 40px 0; }
+        }
+
+        /* Secciones con padding */
+        .content-section {
+            padding: 100px 0;
+        }
+
+        .section-dark {
+            background: #0a0a0a;
+        }
+
+        .section-darker {
+            background: #000000;
+        }
+
+        /* Decoraciones */
+        .sparkle-decoration {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.2;
+            animation: twinkle 2s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.6; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark top-navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand-custom" href="#">
+                ˚ʚ♡ɞ˚ Dannita
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link-custom" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link-custom" href="#mensaje">Carta</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link-custom" href="#galeria">Fotos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link-custom" href="#razones">Cualidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link-custom" href="#momentos">Memorias</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-banner" id="inicio">
+        <div class="hero-text">
+            <div class="main-heart">❤</div>
+            <h1 class="display-1 fw-bold mt-5 mb-4" style="font-size: 5rem; letter-spacing: 3px;">
+                FELIZ SAN VALENTÍN
+            </h1>
+            <div class="line-accent" style="background: rgba(255,255,255,0.4);"></div>
+            <p class="fs-2 mb-5" style="font-weight: 300; letter-spacing: 2px;">
+                14 de Febrero de 2025
+            </p>
+            <div class="mt-5 pt-4">
+                <h2 class="display-3 fw-bold" style="text-shadow: 4px 4px 15px rgba(0,0,0,0.5);">
+                    Para: Danna Riccombeni
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carta -->
+    <div class="letter-section content-section" id="mensaje">
+        <div class="container">
+            <h3 class="custom-heading">Mi Carta Para Ti</h3>
+            <div class="line-accent"></div>
+
+            <!-- Espacio para Sticker Chibi -->
+            <div class="chibi-sticker-container">
+                <img src="IMG/dannittaaaa.gif" alt="Danna corazon">
+                <img src="IMG/dibujo.png" alt="Danna Chibi">
+            </div>
+
+            <div class="row justify-content-center mt-5">
+                <div class="col-lg-10">
+                    <div class="letter-container">
+                        <div class="text-center mb-5">
+                            <span style="font-size: 4.5rem; color: #D84040;">⁀➴💌 ᯓ</span>
+                        </div>
+                        <p class="fs-3 mb-5 fw-bold text-center" style="color: #8E1616;">
+                            Querida Dannita de mi korazon,
+                        </p>
+                        <p class="fs-5 mb-4" style="line-height: 2.2; text-align: justify; text-indent: 40px;">
+                            En este día tan especial, solo quiero recordarte lo tanto que te aprecio y agradezco tu
+                            amistad. Nunca he tenido una amistad que sea tan cariñosa y contigo he aprendido mucho al
+                            respecto de demostrar cariño.
+                        </p>
+                        <p class="fs-5 mb-5" style="line-height: 2.2; text-align: justify; text-indent: 40px;">
+                            Siempre estaré para ti y espero que nuestra amistad dure eternamente. Eres alguien realmente
+                            importante para mi.
+                        </p>
+                        <div class="text-end mt-5 pt-4">
+                            <p class="fs-4 fst-italic mb-3" style="color: #8E1616; font-weight: 700;">
+                                Con todo mi cariño,
+                            </p>
+                            <p class="fs-2 fw-bold" style="color: #D84040;">
+                                Vani (˶˃ ᵕ ˂˶)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Galería de Momentos -->
+    <div class="content-section section-dark" id="galeria">
+        <div class="container">
+            <h3 class="custom-heading">Nuestras Aventuras</h3>
+            <div class="line-accent"></div>
+            <div class="row">
+                <div class="col-lg-11 mx-auto">
+                    <div id="carouselGaleria" class="carousel slide photo-gallery" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselGaleria" data-bs-slide-to="0"
+                                class="active"></button>
+                            <button type="button" data-bs-target="#carouselGaleria" data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#carouselGaleria" data-bs-slide-to="2"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="IMG/momento 1.png" class="d-block w-100" alt="Momento 1"
+                                    style="height: 600px; object-fit: cover;">
+                                <div class="carousel-caption-new">
+                                    <h3 class="fw-bold fs-2">🎮 Incredible Pizza Party</h3>
+                                    <p class="fs-4">Nos encontrabamos en incredible pizza en los juegos</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="IMG/momento 2.png" class="d-block w-100" alt="Momento 2"
+                                    style="height: 600px; object-fit: cover;">
+                                <div class="carousel-caption-new">
+                                    <h3 class="fw-bold fs-2">📱 Primer Selfie con Mi Cel Nuevo</h3>
+                                    <p class="fs-4">Cuando me compre mi celular nuevo, nos sacamos fotos</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="IMG/momento 3.png" class="d-block w-100" alt="Momento 3"
+                                    style="height: 600px; object-fit: cover;">
+                                <div class="carousel-caption-new">
+                                    <h3 class="fw-bold fs-2">🎃 Halloween Legendario</h3>
+                                    <p class="fs-4">En halloween, tu venias del maguito explosivo y yo de la enfermera
+                                        de silent hill, fue divertido y gané el pastel para el salón</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselGaleria"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselGaleria"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cualidades -->
+    <div class="content-section section-darker" id="razones">
+        <div class="container">
+            <h3 class="custom-heading">Lo Que Admiro De Ti</h3>
+            <div class="line-accent"></div>
+            <div class="row g-5 mt-4">
+                <div class="col-md-4">
+                    <div class="feature-card text-center h-100">
+                        <div class="card-icon" style="color: #F7C760;">˗ˏˋ ★ ˎˊ˗</div>
+                        <h4 class="fw-bold mb-4 fs-3" style="color: #8E1616;">Personalidad Brillante</h4>
+                        <p class="fs-6" style="line-height: 2; text-align: justify;">
+                            Tu forma tan abierta y alegre me anima siempre, tus ocurrencias e ideas. Eres comprensiva y
+                            paciente.
+                        </p>
+                        <button class="action-button mt-4">Explorar</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card text-center h-100">
+                        <div class="card-icon">ᕦ(ò_ó)ᕤ</div>
+                        <h4 class="fw-bold mb-4 fs-3" style="color: #8E1616;">Fortaleza Inquebrantable</h4>
+                        <p class="fs-6" style="line-height: 2; text-align: justify;">
+                            Tu determinación y fuerza ante los desafíos es algo que siempre he admirado. No te rindes
+                            fácilmente y eso te hace una persona increíble.
+                        </p>
+                        <button class="action-button mt-4">Explorar</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card text-center h-100">
+                        <div class="card-icon" style="color: #dc3b3b;">ᰔᩚ</div>
+                        <h4 class="fw-bold mb-4 fs-3" style="color: #8E1616;">Corazón De Oro</h4>
+                        <p class="fs-6" style="line-height: 2; text-align: justify;">
+                            La habilidad que tienes de hacer sentir bien a los demás con tus comentarios.
+                        </p>
+                        <button class="action-button mt-4">Explorar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabla de Recuerdos -->
+    <div class="content-section section-dark" id="momentos">
+        <div class="container">
+            <h3 class="custom-heading">Línea De Tiempo</h3>
+            <div class="line-accent"></div>
+            <p class="text-center fs-4 mb-5" style="color: #8E1616; font-weight: 600;">
+                ᝰ.ᐟ Los momentos que atesoro contigo
+            </p>
+            <div class="row">
+                <div class="col-lg-11 mx-auto">
+                    <div class="memory-table-wrapper">
+                        <table class="table table-hover mb-0">
+                            <thead class="table-head-new">
+                                <tr>
+                                    <th scope="col" class="p-4 fs-4">#</th>
+                                    <th scope="col" class="p-4 fs-4">Fecha</th>
+                                    <th scope="col" class="p-4 fs-4">Lugar/Evento</th>
+                                    <th scope="col" class="p-4 fs-4">Lo que Recuerdo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="memory-row">
+                                    <th scope="row" class="p-4 fs-4" style="color: #8E1616; font-weight: 800;">1</th>
+                                    <td class="p-4 fs-6">Enero 2025</td>
+                                    <td class="p-4 fs-6">El mes que nos conocimos</td>
+                                    <td class="p-4 fs-6">Ese primer mes cuando hablamos por primera vez y supe que
+                                        seríamos grandes amigas</td>
+                                </tr>
+                                <tr class="memory-row">
+                                    <th scope="row" class="p-4 fs-4" style="color: #8E1616; font-weight: 800;">2</th>
+                                    <td class="p-4 fs-6">Octubre 2025</td>
+                                    <td class="p-4 fs-6">Halloween</td>
+                                    <td class="p-4 fs-6">Cuando fue el concurso de disfraces en la uni, gané un pastel
+                                        para el salón gracias a sus gritos y aplausos. Fue fantástico ya que hicimos
+                                        también carne asada y cenamos ramen.</td>
+                                </tr>
+                                <tr class="memory-row">
+                                    <th scope="row" class="p-4 fs-4" style="color: #8E1616; font-weight: 800;">3</th>
+                                    <td class="p-4 fs-6">Para Siempre</td>
+                                    <td class="p-4 fs-6">Cada Día</td>
+                                    <td class="p-4 fs-6">Todos los días me divierto contigo y aprendo algo nuevo, no
+                                        siempre hay conversaciones pero tu presencia me conforta.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interacción -->
+    <div class="content-section section-darker">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="text-center p-5 rounded-5"
+                        style="background: linear-gradient(135deg, #1a1a1a, #0f0f0f); box-shadow: 0 20px 50px rgba(216, 64, 64, 0.3); border: 5px solid #D84040;">
+                        <h4 class="mb-5 fw-bold" style="color: #ffffff; font-size: 2.5rem;">¿Qué te pareció?</h4>
+                        <div class="d-flex flex-wrap justify-content-center gap-4 mt-5">
+                            <button class="action-button">
+                                <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b7521c59-9c6d-4e12-8627-6411b1388bfb/ddmgbwy-60b4b68a-ffd3-45e3-8772-545ca4ac1f17.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2I3NTIxYzU5LTljNmQtNGUxMi04NjI3LTY0MTFiMTM4OGJmYlwvZGRtZ2J3eS02MGI0YjY4YS1mZmQzLTQ1ZTMtODc3Mi01NDVjYTRhYzFmMTcuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.CydiJa-HZAEy-jOX2Y67Oiuugi3POmBW1QISPhi3vrs" alt="pato"> Me Fascina
+                            </button>
+                            <button class="action-button"
+                                style="background: linear-gradient(45deg, #2a2a2a, #1a1a1a); border: 2px solid #D84040;">
+                                💬 Comentar
+                            </button>
+                            <button class="action-button" style="background: linear-gradient(45deg, #0a0a0a, #000000); border: 2px solid #8E1616;">
+                                📤 Compartir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bottom-footer text-center">
+        <div class="container">
+            <div class="mb-5">
+                <span style="font-size: 4rem;">⋆.'𖦹°‧💿｡˙✧˖'.°･</span>
+            </div>
+            <h5 class="mb-4 fs-3 fw-bold">Creado Con Amor Infinito</h5>
+            <p class="fs-4 mb-5">Para la mejor amiga del mundo • 14 de Febrero 2026</p>
+            <div class="line-accent" style="background: rgba(216, 64, 64, 0.6); width: 200px;"></div>
+            <p class="mt-5 mb-3 fs-5"><strong>Diseñado con dedicación por:</strong></p>
+            <p class="fs-3 fw-bold mb-4" style="color: #D84040; letter-spacing: 2px;">VANIA NÚÑEZ OCHOA</p>
+            <p class="mb-0 opacity-75"><small>Febrero 2026 • Universidad Tecnologica de Chihuahua</small></p> <br>
+            <img width="250px" src="https://gloomy-poison.neocities.org/joke_graphics/le-kitties.gif" alt="gatos">
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
